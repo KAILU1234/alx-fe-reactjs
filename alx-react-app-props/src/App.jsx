@@ -1,0 +1,15 @@
+import ProfilePage from './ProfilePage';
+import UserContext from './UserContext';
+
+function App() {
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+
+  return (
+    // Provide the user data to all child components via context
+    <UserContext.Provider value={userData}>
+      <ProfilePage />
+    </UserContext.Provider>
+  );
+}
+
+export default App;
