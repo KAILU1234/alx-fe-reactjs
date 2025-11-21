@@ -1,15 +1,16 @@
-# ALX ReactJS Project
+# GitHub User Search Application
 
-This repository contains my first React app built with Vite for the ALX Frontend course.
+This project is part of the ALX “Working with APIs” module.
 
-## Project Structure
-- **alx-react-app** → The React app created with Vite
+## Description
+This React application allows users to search for GitHub users using the GitHub API.
 
-## How to Run
-1. Navigate to the app folder:
-   ```bash
-   cd alx-react-app
-# ALX ReactJS Project
+## Technologies
+- React (Vite)
+- Axios
+- GitHub API
 
-This repository contains my first React app built with Vite for the ALX Frontend course.
+## Setup
+To run this project locally:
 
+1. Install dependencies:
