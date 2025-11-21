@@ -11,3 +11,6 @@ This React application allows users to search for GitHub users using the GitHub 
 - GitHub API
 
 ## Setup
+To run this project locally:
+
+1. Install dependencies:
