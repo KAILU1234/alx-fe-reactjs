@@ -24,16 +24,20 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold text-center text-blue-600 my-4">
+    <div className="min-h-screen bg-gray-100 p-4 text-center">
+      <h1 className="text-3xl font-bold text-blue-600 my-4">
         GitHub User Search
       </h1>
+
       <Search onSearch={handleSearch} />
-      <div className="flex flex-wrap justify-center">
-        {loading && <p>Loading...</p>}
-        {error && <p className="text-red-500">{error}</p>}
-        {user && <UserCard user={user} />}
-      </div>
+
+      {loading && <p className="my-4">Loading...</p>}
+      {error && <p className="text-red-500 my-4">{error}</p>}
+      {user && (
+        <div className="flex justify-center mt-4">
+          <UserCard user={user} />
+        </div>
+      )}
     </div>
   );
 }
