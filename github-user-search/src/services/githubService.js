@@ -32,7 +32,7 @@ export const searchUsers = async ({ username, location, minRepos }) => {
 
     const users = response.data.items;
 
-    // Optionally fetch extra details like public_repos for each user
+    // Fetch extra details like public_repos for each user
     const detailedUsers = await Promise.all(
       users.map(async (user) => {
         try {
