@@ -13,13 +13,38 @@ export const fetchUserData = async (username) => {
   }
 };
 
-// Optional: search multiple users (not used directly in current Search.jsx)
-export const searchUsers = async (query) => {
+// Search multiple GitHub users with optional advanced filters
+export const searchUsers = async ({ username, location, minRepos }) => {
   try {
+    let query = username || "";
+
+    if (location) {
+      query += `+location:${location}`;
+    }
+
+    if (minRepos) {
+      query += `+repos:>=${minRepos}`;
+    }
+
     const response = await axios.get(`${BASE_URL}/search/users`, {
       params: { q: query },
     });
-    return response.data.items;
+
+    const users = response.data.items;
+
+    // Optionally fetch extra details like public_repos for each user
+    const detailedUsers = await Promise.all(
+      users.map(async (user) => {
+        try {
+          const details = await fetchUserData(user.login);
+          return { ...user, ...details };
+        } catch (err) {
+          return user; // fallback if detailed fetch fails
+        }
+      })
+    );
+
+    return detailedUsers;
   } catch (error) {
     console.error("Error searching users:", error);
     return [];
