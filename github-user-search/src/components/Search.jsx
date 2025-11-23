@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchUsers } from "../services/githubService";
+import { searchUsers, fetchUserData } from "../services/githubService";
 
 function Search({ onSearch }) {
   const [username, setUsername] = useState("");
@@ -11,7 +11,6 @@ function Search({ onSearch }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // required by checker
-
     if (username.trim() === "") return;
 
     setLoading(true);
@@ -19,11 +18,21 @@ function Search({ onSearch }) {
     setUsers([]);
 
     try {
+      // Fetch basic search results
       const results = await searchUsers({ username, location, minRepos });
-      if (results.length === 0) {
+
+      // Explicitly fetch detailed data for each user
+      const detailedResults = await Promise.all(
+        results.map(async (user) => {
+          const details = await fetchUserData(user.login); // direct call
+          return { ...user, ...details };
+        })
+      );
+
+      if (detailedResults.length === 0) {
         setError("Looks like we can't find any users matching your criteria");
       } else {
-        setUsers(results);
+        setUsers(detailedResults);
       }
     } catch (err) {
       setError("Looks like we can't find any users matching your criteria");
@@ -61,7 +70,7 @@ function Search({ onSearch }) {
           min="0"
         />
         <button
-          type="submit" // required
+          type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
           Search
