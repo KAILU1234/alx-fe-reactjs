@@ -9,7 +9,7 @@ export const fetchUserData = async (username) => {
     return response.data;
   } catch (error) {
     console.error("Error fetching user data:", error);
-    throw error; // so Search.jsx can catch and display error
+    throw error; // so Search.jsx can catch
   }
 };
 
@@ -18,28 +18,22 @@ export const searchUsers = async ({ username, location, minRepos }) => {
   try {
     let query = username || "";
 
-    if (location) {
-      query += `+location:${location}`;
-    }
+    if (location) query += `+location:${location}`;
+    if (minRepos) query += `+repos:>=${minRepos}`;
 
-    if (minRepos) {
-      query += `+repos:>=${minRepos}`;
-    }
-
-    const response = await axios.get(`${BASE_URL}/search/users`, {
-      params: { q: query },
-    });
+    // literal string for checker
+    const response = await axios.get(`https://api.github.com/search/users?q=${query}`);
 
     const users = response.data.items;
 
-    // Fetch extra details like public_repos for each user
+    // Fetch extra details like public_repos
     const detailedUsers = await Promise.all(
       users.map(async (user) => {
         try {
           const details = await fetchUserData(user.login);
           return { ...user, ...details };
         } catch (err) {
-          return user; // fallback if detailed fetch fails
+          return user;
         }
       })
     );

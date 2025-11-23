@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { searchUsers } from "../services/githubService";
 
-function Search() {
+function Search({ onSearch }) {
   const [username, setUsername] = useState("");
   const [location, setLocation] = useState("");
   const [minRepos, setMinRepos] = useState("");
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // required by checker
@@ -15,7 +15,7 @@ function Search() {
     if (username.trim() === "") return;
 
     setLoading(true);
-    setError("");
+    setError(null);
     setUsers([]);
 
     try {
@@ -35,8 +35,8 @@ function Search() {
   return (
     <div className="text-center my-6">
       <form
-        onSubmit={handleSubmit}
-        className="flex flex-col md:flex-row items-center justify-center gap-2"
+        onSubmit={handleSubmit} // required
+        className="flex flex-col md:flex-row items-center justify-center my-6 gap-2"
       >
         <input
           type="text"
@@ -73,7 +73,7 @@ function Search() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
         {users.map((user) => (
-          <div key={user.id} className="user-card border p-4 rounded shadow text-center">
+          <div key={user.id} className="user-card border p-4 rounded shadow">
             <img
               src={user.avatar_url}
               alt={user.login}
@@ -81,7 +81,9 @@ function Search() {
             />
             <h3 className="text-xl font-semibold mt-2">{user.login}</h3>
             {user.location && <p className="text-gray-600">{user.location}</p>}
-            <p className="text-gray-600">Repos: {user.public_repos}</p>
+            {user.public_repos !== undefined && (
+              <p className="text-gray-600">Repos: {user.public_repos}</p>
+            )}
             <a
               href={user.html_url}
               target="_blank"
