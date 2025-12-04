@@ -4,6 +4,13 @@
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
     "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "200g spaghetti",
+      "100g bacon",
+      "2 large eggs",
+      "50g Parmesan cheese",
+      "Salt and black pepper"
+    ],
     "instructions": "1. Boil pasta. 2. Cook bacon. 3. Mix eggs and cheese. 4. Combine all ingredients."
   },
   {
@@ -11,6 +18,14 @@
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
     "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "500g chicken",
+      "1 cup yogurt",
+      "2 tbsp tikka masala spice",
+      "1 onion",
+      "2 tomatoes",
+      "Cream"
+    ],
     "instructions": "1. Marinate chicken. 2. Grill chicken. 3. Prepare masala sauce. 4. Combine chicken with sauce."
   },
   {
@@ -18,6 +33,14 @@
     "title": "Veggie Salad",
     "summary": "Fresh and healthy salad with seasonal vegetables.",
     "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "1 cucumber",
+      "2 tomatoes",
+      "1 carrot",
+      "50g lettuce",
+      "2 tbsp olive oil",
+      "Salt and pepper"
+    ],
     "instructions": "1. Chop vegetables. 2. Mix dressing. 3. Toss vegetables with dressing. 4. Serve fresh."
   }
 ]

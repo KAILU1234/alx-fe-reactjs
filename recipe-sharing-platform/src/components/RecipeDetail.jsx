@@ -29,6 +29,14 @@ function RecipeDetail() {
         />
         <h1 className="text-3xl font-bold text-blue-600 mb-4">{recipe.title}</h1>
         <p className="text-gray-700 text-lg mb-4">{recipe.summary}</p>
+
+        <h2 className="text-2xl font-semibold mb-2">Ingredients</h2>
+        <ul className="list-disc list-inside text-gray-600 mb-4">
+          {recipe.ingredients.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+
         <h2 className="text-2xl font-semibold mb-2">Instructions</h2>
         <p className="text-gray-600">{recipe.instructions}</p>
       </div>
