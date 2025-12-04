@@ -4,40 +4,20 @@
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
     "image": "https://via.placeholder.com/150",
-    "ingredients": ["Spaghetti", "Eggs", "Bacon", "Parmesan cheese", "Black pepper"],
-    "steps": [
-      "Boil spaghetti according to package instructions",
-      "Cook bacon until crispy",
-      "Mix eggs and cheese in a bowl",
-      "Combine spaghetti with bacon and egg mixture",
-      "Serve immediately with black pepper"
-    ]
+    "instructions": "1. Boil pasta. 2. Cook bacon. 3. Mix eggs and cheese. 4. Combine all ingredients."
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
     "image": "https://via.placeholder.com/150",
-    "ingredients": ["Chicken", "Yogurt", "Tomato puree", "Cream", "Spices"],
-    "steps": [
-      "Marinate chicken in yogurt and spices",
-      "Grill or bake chicken until cooked",
-      "Prepare sauce with tomato puree, cream, and spices",
-      "Add cooked chicken to sauce and simmer",
-      "Serve with rice or naan"
-    ]
+    "instructions": "1. Marinate chicken. 2. Grill chicken. 3. Prepare masala sauce. 4. Combine chicken with sauce."
   },
   {
     "id": 3,
     "title": "Veggie Salad",
     "summary": "Fresh and healthy salad with seasonal vegetables.",
     "image": "https://via.placeholder.com/150",
-    "ingredients": ["Lettuce", "Tomatoes", "Cucumbers", "Carrots", "Dressing"],
-    "steps": [
-      "Chop all vegetables",
-      "Mix vegetables in a bowl",
-      "Add dressing and toss",
-      "Serve fresh"
-    ]
+    "instructions": "1. Chop vegetables. 2. Mix dressing. 3. Toss vegetables with dressing. 4. Serve fresh."
   }
 ]
