@@ -8,17 +8,21 @@ function AddRecipeForm() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Validation function
+  const validate = () => {
     const newErrors = {};
-
     if (!title.trim()) newErrors.title = "Title is required";
     if (!ingredients.trim()) newErrors.ingredients = "Ingredients are required";
     if (!steps.trim()) newErrors.steps = "Preparation steps are required";
+    return newErrors;
+  };
 
-    setErrors(newErrors);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    setErrors(validationErrors);
 
-    if (Object.keys(newErrors).length === 0) {
+    if (Object.keys(validationErrors).length === 0) {
       // Normally here you would send the new recipe to backend or update state
       alert("Recipe added successfully!");
       navigate("/"); // redirect back to home page
