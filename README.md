@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -14,3 +15,26 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+=======
+# GitHub User Search Application
+
+This project is a React application that allows users to search for GitHub profiles using the GitHub API.
+
+## Features
+- Search GitHub users
+- Display basic user information
+- Link to GitHub profiles
+
+## Tech Stack
+- React (Vite)
+- Axios
+- GitHub API
+
+## Setup
+1. Clone the repository
+2. Run `npm install`
+3. Run `npm run dev`
+
+## Author
+ALX Frontend React Project
+>>>>>>> 0d384638e173ea88eb84de1a0475d21930817ed0

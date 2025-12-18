@@ -1,5 +1,10 @@
 {
+<<<<<<< HEAD
   "name": "react-router-advanced",
+=======
+  "name": "github-user-search",
+  "name": "alx-react-app-new",
+>>>>>>> 0d384638e173ea88eb84de1a0475d21930817ed0
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,9 +15,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0"
+=======
+    "axios": "^1.13.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+>>>>>>> 0d384638e173ea88eb84de1a0475d21930817ed0
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
