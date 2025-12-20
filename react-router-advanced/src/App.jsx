@@ -1,26 +1,21 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import UserProfile from "./components/UserProfile";
+import BlogPost from "./components/BlogPost"; // import BlogPost
 
 function App() {
-  const isAuthenticated = false;
-
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-
-        <Route
-          path="/profile/*"
-          element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
-        />
-
-        <Route path="/user/:id" element={<UserProfile />} />
+        <Route path="/profile/*" element={<Profile />} />
+        <Route path="/user/:username" element={<UserProfile />} />
+        <Route path="/blog/:id" element={<BlogPost />} /> {/* dynamic route */}
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
