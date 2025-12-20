@@ -1,13 +1,15 @@
 import { Routes, Route, Link } from "react-router-dom";
-import ProfileDetails from "./ProfileDetails.jsx";
-import ProfileSettings from "./ProfileSettings.jsx";
+import ProfileDetails from "./ProfileDetails";
+import ProfileSettings from "./ProfileSettings";
 
 export default function Profile() {
   return (
     <div>
-      <h1>Profile Page</h1>
+      <h1>Profile</h1>
+
       <nav>
-        <Link to="details">Details</Link> | <Link to="settings">Settings</Link>
+        <Link to="details">Details</Link> |{" "}
+        <Link to="settings">Settings</Link>
       </nav>
 
       <Routes>
