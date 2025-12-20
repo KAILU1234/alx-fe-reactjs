@@ -1,52 +1,27 @@
-<<<<<<< HEAD
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Profile from "./components/Profile";
+import UserProfile from "./components/UserProfile";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const isAuthenticated = false;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
 
-export default App
-=======
-import ProfilePage from './components/ProfilePage';
-import UserContext from './UserContext';
+        <Route
+          path="/profile/*"
+          element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
+        />
 
-function App() {
-  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
-
-  return (
-    <UserContext.Provider value={userData}>
-      <ProfilePage />
-    </UserContext.Provider>
+        <Route path="/user/:id" element={<UserProfile />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
->>>>>>> 06dce3b357334283e966d19f2a2f329f059518cc
